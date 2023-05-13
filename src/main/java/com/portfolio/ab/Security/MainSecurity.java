@@ -55,9 +55,8 @@ public class MainSecurity {
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authorizeHttpRequests()
-            .requestMatchers("/auth/**").permitAll()
+            .requestMatchers("**").permitAll()
             .anyRequest().authenticated();
-        /*.httpBasic();*/
         
         http.addFilterBefore(jwtTokenFilterAuth(), UsernamePasswordAuthenticationFilter.class);
 

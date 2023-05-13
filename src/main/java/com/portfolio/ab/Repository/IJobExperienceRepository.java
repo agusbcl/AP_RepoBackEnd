@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RExperience extends JpaRepository<JobExperience, Integer> {
+public interface IJobExperienceRepository extends JpaRepository<JobExperience, Integer> {
     
     public Optional<JobExperience> findByJobName(String jobName);
     public boolean existsByJobName(String jobName);

@@ -1,46 +1,46 @@
 package com.portfolio.ab.Service;
 
 import com.portfolio.ab.Entity.JobExperience;
-import com.portfolio.ab.Repository.RExperience;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.portfolio.ab.Repository.IJobExperienceRepository;
 
 @Service
 @Transactional
-public class SExperience {
+public class JobExperienceService {
 
     @Autowired
-    RExperience rExperience;
+    IJobExperienceRepository rJobExperience;
 
     public List<JobExperience> list() {
-        return rExperience.findAll();
+        return rJobExperience.findAll();
     }
 
     public Optional<JobExperience> getOne(int id) {
-        return rExperience.findById(id);
+        return rJobExperience.findById(id);
     }
 
     public Optional<JobExperience> getByJobName(String jobName) {
-        return rExperience.findByJobName(jobName);
+        return rJobExperience.findByJobName(jobName);
     }
 
     public void save(JobExperience jobExp) {
-        rExperience.save(jobExp);
+        rJobExperience.save(jobExp);
     }
 
     public void deleteById(int id) {
-        rExperience.deleteById(id);
+        rJobExperience.deleteById(id);
     }
 
     public boolean existsById(int id) {
-        return rExperience.existsById(id);
+        return rJobExperience.existsById(id);
     }
 
     public boolean existsByJobName(String jobName) {
-        return rExperience.existsByJobName(jobName);
+        return rJobExperience.existsByJobName(jobName);
     }
 
 }
