@@ -1,51 +1,28 @@
-package com.portfolio.ab.Entity;
+package com.portfolio.ab.Dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotBlank;
 
 
 
-@Entity
-public class Person {
+public class dtoPerson {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @NotNull
-    @Size(min = 1, max = 50, message = "Name requires at least one character")
+    @NotBlank
     private String name;
-
-    @NotNull
-    @Size(min = 1, max = 50, message = "Last Name requires at least one character")
+    @NotBlank
     private String lastName;
-    
-    @NotNull
+    @NotBlank
     private String description;
-
-    @NotNull
+    @NotBlank
     private String img;
 
-    public Person() {
+    public dtoPerson() {
     }
 
-    public Person(String name, String lastName, String description, String img) {
+    public dtoPerson(String name, String lastName, String description, String img) {
         this.name = name;
         this.lastName = lastName;
         this.description = description;
         this.img = img;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -81,5 +58,4 @@ public class Person {
     }
     
     
-
 }
