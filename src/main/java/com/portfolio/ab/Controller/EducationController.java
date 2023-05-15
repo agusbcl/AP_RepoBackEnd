@@ -52,7 +52,7 @@ public class EducationController {
             return new ResponseEntity(new Message("Education already exists"), HttpStatus.BAD_REQUEST);
         }
 
-        Education education = new Education(dtoEducation.getEduName(), dtoEducation.getEduDescription());
+        Education education = new Education(dtoEducation.getEduName(),dtoEducation.getStartDate(), dtoEducation.getEndDate(), dtoEducation.getEduDescription());
         educationService.save(education);
 
         return new ResponseEntity(new Message("Education added successfully!"), HttpStatus.OK);
@@ -76,6 +76,8 @@ public class EducationController {
 
         Education education = educationService.getOne(id).get();
         education.setEduName(dtoEducation.getEduName());
+        education.setStartDate(dtoEducation.getStartDate());
+        education.setEndDate(dtoEducation.getEndDate());
         education.setEduDescription(dtoEducation.getEduDescription());
 
         educationService.save(education);

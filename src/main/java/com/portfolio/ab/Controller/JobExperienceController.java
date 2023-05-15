@@ -52,7 +52,7 @@ public class JobExperienceController {
             return new ResponseEntity(new Message("Job experience already exists"), HttpStatus.BAD_REQUEST);
         }
 
-        JobExperience jobExperience = new JobExperience(dtoExperience.getJobName(), dtoExperience.getJobDescription());
+        JobExperience jobExperience = new JobExperience(dtoExperience.getJobName(), dtoExperience.getStartDate(), dtoExperience.getEndDate(), dtoExperience.getJobDescription());
         jobExperienceService.save(jobExperience);
 
         return new ResponseEntity(new Message("Job Experience added successfully!"), HttpStatus.OK);
@@ -76,6 +76,8 @@ public class JobExperienceController {
 
         JobExperience jobExperience = jobExperienceService.getOne(id).get();
         jobExperience.setJobName(dtoExperience.getJobName());
+        jobExperience.setStartDate(dtoExperience.getStartDate());
+        jobExperience.setEndDate(dtoExperience.getEndDate());
         jobExperience.setJobDescription(dtoExperience.getJobDescription());
 
         jobExperienceService.save(jobExperience);

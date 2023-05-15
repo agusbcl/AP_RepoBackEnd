@@ -1,9 +1,11 @@
 package com.portfolio.ab.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.sql.Date;
 
 @Entity
 public class JobExperience {
@@ -12,13 +14,18 @@ public class JobExperience {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String jobName;
+    private Date startDate;
+    @Column(nullable = true)
+    private Date endDate;
     private String jobDescription;
 
     public JobExperience() {
     }
 
-    public JobExperience(String jobName, String jobDescription) {
+    public JobExperience(String jobName, Date startDate, Date endDate, String jobDescription) {
         this.jobName = jobName;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.jobDescription = jobDescription;
     }
 
@@ -47,4 +54,19 @@ public class JobExperience {
         this.jobDescription = jobDescription;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
 }
