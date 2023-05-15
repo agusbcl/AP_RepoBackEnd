@@ -28,6 +28,7 @@ public class Person {
     private String description;
 
     @NotNull
+    @Size(max = 255)
     private String img;
 
     public Person() {
